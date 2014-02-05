@@ -40,20 +40,45 @@ The majority of the questions were plucked from an [oksoclap](http://oksoclap.co
 * What excites or interests you about coding?
 * What UI, Security, Performance, SEO, Maintainability or Technology considerations do you make while building a web application or site?
 * Talk about your preferred development environment. (OS, Editor, Browsers, Tools etc.)
+    + A: osX, Sublime Text and plugins, normal browser is Chrome and inspector, Firefox with agents to test other browser.
 * Can you describe your workflow when you create a web page?
+    + A: [Portfolio](http://www.smashingmagazine.com/2013/06/25/workflow-design-develop-modern-portfolio-website/)
+    + A: Actually, for me as a dev from coding background. I might focus on interactions with backends. How to consume APIs and how the performance ? CSS spirit, js minimization and etc.
 * Can you describe the difference between progressive enhancement and graceful degradation?
+    + A: [Opera Explaination](http://dev.opera.com/articles/view/graceful-degradation-progressive-enhancement/) In a nutshell, graceful degradation is the practice of building your web functionality so that it provides a certain level of user experience in more modern browsers, but it will also degrade gracefully to a lower level of user in experience in older browsers. Progressive enhancement is similar, but it does things the other way round. You start by establishing a basic level of user experience that all browsers will be able to provide when rendering your web site, but you also build in more advanced functionality that will automatically be available to browsers that can use it.
   * Bonus points for describing feature detection
+    + A: [Feature detecting](http://jibbering.com/faq/notes/detect-browser/#bdFD) It is the direct one-to-one relationship in the implemented tests that avoids the need to identify the specific browser because whatever browser it is it either will support all of the required features or it will not. That would mean testing the feature itself (to ensure that it exists on the browser) and possibly aspects of the behaviour of that feature.
 * Explain what "Semantic HTML" means.
+    + A: Semantic HTML is the use of HTML markup to reinforce the semantics, or meaning, of the information in webpages rather than merely to define its presentation or look. Semantic HTML is processed by regular web browsers as well as by many other user agents. CSS is used to suggest its presentation to human users.
+    
+    + It's useful because:
+
+        1. Browsers can correctly apply your CSS (Cascading Style Sheets), describing how each type of content should look. You can offer alternative styles, or users can use their own; as long as you've labeled your elements semantically, rules like "I want headlines to be huge" will be usable.
+
+        2. Screen readers for the blind can help them fill out a form more easily if the logical sections are broken into fieldsets with one legend for each one. The blind user can say, "oh, this section doesn't apply to me, so I can skip ahead," just as you would do by glancing at it.
+      
+        3. Mobile phones can switch to a numeric keyboard when they see a form input of type "tel" (for telephone numbers).
+
 * How would you optimize a websites assets/resources?
-  * Looking for a number of solutions which can include:
-    * File concatenation
-    * File minification
-    * CDN Hosted
-    * Caching
-    * etc.
-* Why is it better to serve site assets from multiple domains?
-  * How many resources will a browser download from a given domain at a time?
+      * [Yahoo performance rulse](http://developer.yahoo.com/performance/rules.html)
+      * [NewRelic](http://www.sitepoint.com/web-site-optimization-steps/)
+      * **Minimize HTTP requests**: combining all scripts into a single script, and similarly combining all CSS into a single stylesheet. Combining files is more challenging when the scripts and stylesheets vary from page to page, but making this part of your release process improves response times.
+      * **File minification**: 
+      * **CDN Hosted**
+      * **Add a expires or a cache-control header**. For static components: implement "Never expire" policy by setting far future Expires header. For dynamic components: use an appropriate Cache-Control header to help the browser with conditional requests
+      * **Gzip components**: Compression reduces response times by reducing the size of the HTTP response.
+      * **Component positions** : Put Stylesheets at the Top and put scripts on the bottom. Moving stylesheets to the document HEAD makes pages appear to be loading faster. This is because putting stylesheets in the HEAD allows the page to render progressively. The problem with putting stylesheets near the bottom of the document is that it prohibits progressive rendering in many browsers, including Internet Explorer. These browsers block rendering to avoid having to redraw elements of the page if their styles change. The user is stuck viewing a blank white page.
+      * **Minor things inclueds no 404s**, remove duplications, use GET as much as possible, minimize the number of iFrames, split components to enable parallel downloads.
+
+* Why is it better to serve site assets from multiple domains? 
+    * A: Maximize parallel downloads. But due to DNS lookup penalty and the size of components, the number of domains various.
+* How many resources will a browser download from a given domain at a time? 
+    * A: Two, from http/1.1 spec.
 * Name 3 ways to decrease page load. (perceived or actual load time)
+    * CDN hosted.
+    * Conbining all scripts. CSS sprites.
+    * Cache.
+
 * If you jumped on a project and they used tabs and you used spaces, what would you do?
   * Suggest the project utilize something like EditorConfig (http://editorconfig.org)
   * Conform to the conventions (stay consistent)
