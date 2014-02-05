@@ -142,31 +142,92 @@ The majority of the questions were plucked from an [oksoclap](http://oksoclap.co
 ####[[⬆]](#toc) <a name='js'>JS Questions:</a>
 
 * Explain event delegation
+  A: When you have a parent node with multiple children, instead of adding event listener to each child, just add it to the parent.
+
+```html
+  <ul id="parent-node">
+  <li id="child1">Item1</li>
+  <li id="child2">Item2</li>
+  </ui>
+``` 
+```javascript
+document.getElementById("parent-node").addEventListener("click", function(e){
+  if (e.target && e.target.nodeName == "LI"){
+  //dosomething
+}
+})
+```
 * Explain how `this` works in JavaScript
+  
+    * A: [There are exactly five different ways in which the value of *this* can be bound in the language.](http://bonsaiden.github.io/JavaScript-Garden/#function.this)
+
 * Explain how prototypal inheritance works
+
+    * When accessing the properties of an object, JavaScript will traverse the prototype chain upwards until it finds a property with the requested name.
+
 * How do you go about testing your JavaScript?
+    
+    * Mocha and Chai. TDD and BDD.
+
 * AMD vs. CommonJS?
+  
+    * [AMD vs CommonJS](http://addyosmani.com/writing-modular-js/)
+
 * What's a hashtable?
+
+    * [Hashtable](http://www.mojavelinux.com/articles/javascript_hashes.html)
+
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`. 
-  * What needs to be changed to properly make it an IIFE?
+* What needs to be changed to properly make it an IIFE? (immediate-invoked function expression)
+    * A: var bar = function foo(){}(); When the parser encounters the function keyword in the global scope or inside a function, it treats it as a function declaration (statement), and not as a function expression, by default.
+
 * What's the difference between a variable that is: `null`, `undefined` or `undeclared`?
+  * A: undeclared variable means it doesnt exist so the type of it is undefined. null means the absence of a value.
   * How would you go about checking for any of these states?
+    typeof x === 'undefined'
+    if (x) //null check.
+
 * What is a closure, and how/why would you use one?
+  
+
 * What's a typical use case for anonymous functions?
+  * A: Callback function. Closure.
 * Explain the "JavaScript module pattern" and when you'd use it.
+  * A: [module-pattern](http://elegantcode.com/2011/02/15/basic-javascript-part-10-the-module-pattern/)
   * Bonus points for mentioning clean namespacing.
   * What if your modules are namespace-less?
+
 * How do you organize your code? (module pattern, classical inheritance?)
+
 * What's the difference between host objects and native objects?
+  
+  *  A: native object
+object in an ECMAScript implementation whose semantics are fully defined by this specification rather than by the host environment.
+
+NOTE Standard native objects are defined in this specification. Some native objects are built-in; others may be constructed during the course of execution of an ECMAScript program.
+
+Source: http://es5.github.com/#x4.3.6
+
+host object
+object supplied by the host environment to complete the execution environment of ECMAScript.
+
+NOTE Any object that is not native is a host object.
+
 * Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+  * A: function declaration. function calling. initial object. 
+
 * What's the difference between `.call` and `.apply`?
+  * A: call take arguments listed explicitly, apply takes array of arguments.
+
 * explain `Function.prototype.bind`?
+  
 * When do you optimize your code?
 * Can you explain how inheritance works in JavaScript?
 * When would you use `document.write()`?
   * Most generated ads still utilize `document.write()` although its use is frowned upon
 * What's the difference between feature detection, feature inference, and using the UA string
 * Explain AJAX in as much detail as possible
+  
 * Explain how JSONP works (and how it's not really AJAX)
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used? (Mustache.js, Handlebars etc.)
