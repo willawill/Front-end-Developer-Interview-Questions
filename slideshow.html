@@ -27,7 +27,7 @@
 <body>
 	<h1>Here is a slide show with setInterval</h1>
 	<script>
-	$(function() {
+	$(document).ready(function() { /* simply put as $(function())*/
 		$("#slideshow > div:gt(0)").hide(); /*hide the first div*/
 
 		setInterval(function() {
