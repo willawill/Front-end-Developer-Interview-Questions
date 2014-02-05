@@ -84,12 +84,19 @@ The majority of the questions were plucked from an [oksoclap](http://oksoclap.co
   * Conform to the conventions (stay consistent)
   * `issue :retab! command`
 * Write a simple slideshow page
-  * Bonus points if it does not use JS.
+  * Bonus points if it does not use JS. (Pure css trick. [scriptless-slides](https://github.com/bytasv/scriptless-slides)
 * What tools do you use to test your code's performance?
-  * Profiler, JSPerf, Dromaeo
+  * Profiler: 
+  * JSPerf
+  * Dromaeo
 * If you could master one technology this year, what would it be?
 * What are the differences between Long-Polling, Websockets and SSE?
+  * A: Long-polling is a normal http request but the server won't response until a new info available. The client will initial another request upon receiving the new info.
+      SSE server sent event, server executes javascript and open a connection with client. 
+      Websocket: create TCP connection to server, and keep is as long as needed. Server or client can easily close it. Bidirectional communication - so server and client can exchange data both directions at any time. It is very efficient if application requires frequent messages. WebSockets do have data framing that includes masking for each message sent from client to server so data is simply encrypted.Main advantage of WebSockets for server, is that it is not HTTP request (after handshake), but proper message based communication protocol. That allows you to achieve huge performance and architecture advantages.  
 * Explain the importance of standards and standards bodies.
+    * Eliminate these discrepancies and formalize the de facto standards, enabling you to create sites that worked reasonably well across all browsers. Standards bodies such as the World Wide Web Consortium (W3C) were created as forums to establish agreement across the industry and among vendors.
+
 * What is FOUC? How do you avoid FOUC?
 * Do your best to describe the process from the time you type in a website's URL to it finishing loading on your screen.
 
