@@ -72,7 +72,7 @@ The majority of the questions were plucked from an [oksoclap](http://oksoclap.co
 
 * Why is it better to serve site assets from multiple domains? 
     * A: Maximize parallel downloads. But due to DNS lookup penalty and the size of components, the number of domains various.
-* How many resources will a browser download from a given domain at a time? 
+* How many resources will a browser download from a given domain at a time?
     * A: Two, from http/1.1 spec.
 * Name 3 ways to decrease page load. (perceived or actual load time)
     * CDN hosted.
@@ -86,13 +86,13 @@ The majority of the questions were plucked from an [oksoclap](http://oksoclap.co
 * Write a simple slideshow page
   * Bonus points if it does not use JS. (Pure css trick. [scriptless-slides](https://github.com/bytasv/scriptless-slides)
 * What tools do you use to test your code's performance?
-  * Profiler: 
+  * Profiler:
   * JSPerf
   * Dromaeo
 * If you could master one technology this year, what would it be?
 * What are the differences between Long-Polling, Websockets and SSE?
   * A: Long-polling is a normal http request but the server won't response until a new info available. The client will initial another request upon receiving the new info.
-      SSE server sent event, server executes javascript and open a connection with client. 
+      SSE server sent event, server executes javascript and open a connection with client.
       Websocket: create TCP connection to server, and keep is as long as needed. Server or client can easily close it. Bidirectional communication - so server and client can exchange data both directions at any time. It is very efficient if application requires frequent messages. WebSockets do have data framing that includes masking for each message sent from client to server so data is simply encrypted.Main advantage of WebSockets for server, is that it is not HTTP request (after handshake), but proper message based communication protocol. That allows you to achieve huge performance and architecture advantages.  
 * Explain the importance of standards and standards bodies.
     * Eliminate these discrepancies and formalize the de facto standards, enabling you to create sites that worked reasonably well across all browsers. Standards bodies such as the World Wide Web Consortium (W3C) were created as forums to establish agreement across the industry and among vendors.
@@ -149,7 +149,7 @@ The majority of the questions were plucked from an [oksoclap](http://oksoclap.co
   <li id="child1">Item1</li>
   <li id="child2">Item2</li>
   </ui>
-``` 
+```
 ```javascript
 document.getElementById("parent-node").addEventListener("click", function(e){
   if (e.target && e.target.nodeName == "LI"){
@@ -163,7 +163,13 @@ document.getElementById("parent-node").addEventListener("click", function(e){
 
 * Explain how prototypal inheritance works
 
-    * When accessing the properties of an object, JavaScript will traverse the prototype chain upwards until it finds a property with the requested name.
+    * When accessing the properties of an object, JavaScript will traverse the prototype chain upwards until it finds a property with the requested name. Javascript only provides by default one specific case of prototypal inheritance with the *new* operator. Javascript uses __proto__property to represent the next prototype to find in the prototype chain. The *new* operator does three steps:
+
+        1. create a new instance of the class and set __proto__to be Class.prototype
+
+        2. Initialize the instance. Set *this* to the instance.
+
+        3. Return the instance.
 
 * How do you go about testing your JavaScript?
     
@@ -180,18 +186,25 @@ document.getElementById("parent-node").addEventListener("click", function(e){
 * Explain why the following doesn't work as an IIFE: `function foo(){ }();`. 
 * What needs to be changed to properly make it an IIFE? (immediate-invoked function expression)
     * A: var bar = function foo(){}(); When the parser encounters the function keyword in the global scope or inside a function, it treats it as a function declaration (statement), and not as a function expression, by default.
-
+    * A: (function foo(){})() is good enough.Because the purpose of parens is to disambiguate the function declaration and function expression.
+    * A: !function foo(){}()
+    * A: new function foo(){}()
 * What's the difference between a variable that is: `null`, `undefined` or `undeclared`?
-  * A: undeclared variable means it doesnt exist so the type of it is undefined. null means the absence of a value.
+  
+    * A: undeclared variable means it doesnt exist so the type of it is undefined. null means the absence of a value.
   * How would you go about checking for any of these states?
-    typeof x === 'undefined'
-    if (x) //null check.
+    ```
+      typeof x === 'undefined'
+      if (x) //null check.
+    ```
 
 * What is a closure, and how/why would you use one?
   
 
 * What's a typical use case for anonymous functions?
-  * A: Callback function. Closure.
+
+    * A: Callback function. Closure. I would ask myself one question that will I apply that somewhere else? if the answer is no then I would create it without a name. It's useful because it has access to the parent scope.
+
 * Explain the "JavaScript module pattern" and when you'd use it.
   * A: [module-pattern](http://elegantcode.com/2011/02/15/basic-javascript-part-10-the-module-pattern/)
   * Bonus points for mentioning clean namespacing.
@@ -214,20 +227,26 @@ object supplied by the host environment to complete the execution environment of
 NOTE Any object that is not native is a host object.
 
 * Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
-  * A: function declaration. function calling. initial object. 
+  * A: function declaration. function calling. make a new instance of a class. 
 
 * What's the difference between `.call` and `.apply`?
   * A: call take arguments listed explicitly, apply takes array of arguments.
 
 * explain `Function.prototype.bind`?
   
+    * A: The simplest use of bind() is to make a function that, no matter how it is called, is called with a particular this value.
 * When do you optimize your code?
+
+    * A: When all the tests pass
+
 * Can you explain how inheritance works in JavaScript?
+
 * When would you use `document.write()`?
+  * A: Easiest way to modify the page and 
   * Most generated ads still utilize `document.write()` although its use is frowned upon
 * What's the difference between feature detection, feature inference, and using the UA string
 * Explain AJAX in as much detail as possible
-  
+
 * Explain how JSONP works (and how it's not really AJAX)
 * Have you ever used JavaScript templating?
   * If so, what libraries have you used? (Mustache.js, Handlebars etc.)
