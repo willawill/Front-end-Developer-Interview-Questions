@@ -242,7 +242,8 @@ NOTE Any object that is not native is a host object.
 * Can you explain how inheritance works in JavaScript?
 
 * When would you use `document.write()`?
-  * A: Easiest way to modify the page and 
+
+  * A: Easiest way to modify the content. document.write() generates text in the exact location where it is scripted, and in the exact moment when it is called. This makes it ideal for generating text while a page is loading.The process is certainly convenient, and also fast. A DOM technique would not allow the script to insert the greeting until after the page has loaded.document.write() is occasionally used to fill freshly opened pop-up windows with content.
   * Most generated ads still utilize `document.write()` although its use is frowned upon
 * What's the difference between feature detection, feature inference, and using the UA string
 * Explain AJAX in as much detail as possible
@@ -275,6 +276,9 @@ NOTE Any object that is not native is a host object.
 * Explain "deferreds".
 * What are some jQuery specific optimizations you can implement?
 * What does `.end()` do?
+  
+    * End the most recent filtering operation in the current chain and return the set of matched elements to its previous state.
+
 * How, and why, would you namespace a bound event handler?
 * Name 4 different values you can pass to the jQuery method.
   * Selector (string), HTML (string), Callback (function), HTMLElement, object, array, element array, jQuery Object etc.
@@ -282,6 +286,9 @@ NOTE Any object that is not native is a host object.
 * What is the difference between `.get()`, `[]`, and `.eq()`?
 * What is the difference between `.bind()`, `.live()`, and `.delegate()`?
 * What is the difference between `$` and `$.fn`? Or just what is `$.fn`.
+  
+  * jQuery.fn === jQuery.prototype $ is jQuery idenifier.
+  
 * Optimize this selector:
 ```javascript
 $(".foo div#bar:eq(0)")
@@ -338,5 +345,7 @@ foo.push(2);
 * http://programmers.stackexchange.com/questions/46716/what-technical-details-should-a-programmer-of-a-web-application-consider-before
 * http://www.nczonline.net/blog/2010/01/05/interviewing-the-front-end-engineer/
 * http://css-tricks.com/interview-questions-css/
-* http://davidshariff.com/quiz/
+* http:///avidshariff.com/quiz/
+* http://javascript-puzzlers.herokuapp.com/
 * http://blog.sourcing.io/interview-questions
+* https://gist.github.com/yig/8744917
