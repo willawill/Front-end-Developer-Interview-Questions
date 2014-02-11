@@ -194,19 +194,21 @@ document.getElementById("parent-node").addEventListener("click", function(e){
     * A: undeclared variable means it doesnt exist so the type of it is undefined. null means the absence of a value.
   * How would you go about checking for any of these states?
     ```
-      typeof x === 'undefined'
+      typeof x === 'undefined' since typeof x will return the type as a string.
       if (x) //null check.
     ```
 
 * What is a closure, and how/why would you use one?
   
+  A: Inside a function, you can declare a function and return it. THe benefit is the closure will have access to the outer scope.
 
 * What's a typical use case for anonymous functions?
 
     * A: Callback function. Closure. I would ask myself one question that will I apply that somewhere else? if the answer is no then I would create it without a name. It's useful because it has access to the parent scope.
 
 * Explain the "JavaScript module pattern" and when you'd use it.
-  * A: [module-pattern](http://elegantcode.com/2011/02/15/basic-javascript-part-10-the-module-pattern/)
+  * A: [module-pattern](http://elegantcode.com/2011/02/15/basic-javascript-part-10-the-module-pattern/) it's exactly like a closure, but with a immediately-invoked anonymous function. So that only one instance of module ever exist.
+  Since the closure shares local variable with the outer function. So preserve the value of local variable is important.
   * Bonus points for mentioning clean namespacing.
   * What if your modules are namespace-less?
 
@@ -288,7 +290,7 @@ NOTE Any object that is not native is a host object.
 * What is the difference between `$` and `$.fn`? Or just what is `$.fn`.
   
   * jQuery.fn === jQuery.prototype $ is jQuery idenifier.
-  
+
 * Optimize this selector:
 ```javascript
 $(".foo div#bar:eq(0)")
